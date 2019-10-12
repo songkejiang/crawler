@@ -14,7 +14,10 @@
     "cross-env": "^6.0.3",
     "express": "^4.17.1",
     "nodemon": "^1.19.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
     "superagent": "^5.1.0",
-    "superagent-charset": "^1.2.0"
+    "superagent-charset": "^1.2.0",
+    "url": "^0.11.0"
   }
 }

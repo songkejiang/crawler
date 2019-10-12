@@ -2,9 +2,29 @@ var superagent = require('superagent');
 var charset = require('superagent-charset');
 charset(superagent);
 var express = require('express');
-var baseUrl = 'http://dtmg.bidduo.cn'; //输入任何网址都可以
+var baseUrl = 'https://www.mzitu.com'; //输入任何网址都可以
 const cheerio = require('cheerio');
 var app = express();
+const rp = require("request-promise") //进入request-promise模块
+const fs = require("fs")
+let getPage = async (URL) => {
+  // const data = {
+  //     URL, 
+  //     res: await rp({
+  //         url: URL
+  //     }) 
+  // }; 
+  return await rp({
+    url: URL
+   })  //这样，我们返回了一个对象，就是这个页面的url和页面内容。
+}
+getPage(baseUrl).then((res) => {
+  const $ = cheerio.load(res); //将html转换为可操作的节点
+  // console.log(res)
+  $('img').each((index, item) => {
+    console.log($(item).attr('data-original'))
+  })
+})
 app.get('/index', function(req, res) {
     //设置请求头
     // res.header("Access-Control-Allow-Origin", "*");
