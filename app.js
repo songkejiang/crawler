@@ -15,7 +15,7 @@ let getPage = async (URL) => {
 
 getPage(baseUrl).then((res) => {
   const $ = cheerio.load(res); //将html转换为可操作的节点
-  // console.log(res)
+  console.log(res)
   $('img').each(async (index, item) => {
     console.log($(item).attr('src'))
     // let res = await rp({
